@@ -1,0 +1,35 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const searchBtn = document.getElementById("searchBtn");
+  const searchInput = document.getElementById("searchInput");
+  const results = document.getElementById("results");
+
+  const dummyData = [
+    { name: "Tulsi Tea", description: "Boosts immunity and reduces stress" },
+    { name: "Ginger Honey Tea", description: "Great for digestion and inflammation" },
+    { name: "Chamomile Tea", description: "Promotes sleep and relaxation" }
+  ];
+
+  function renderResults(data) {
+    results.innerHTML = "";
+    if (!data.length) {
+      results.innerHTML = "<p>No results found.</p>";
+      return;
+    }
+    data.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.setAttribute("data-aos", "fade-up");
+      div.innerHTML = `<h3>${item.name}</h3><p>${item.description}</p>`;
+      results.appendChild(div);
+    });
+    AOS.refresh();
+  }
+
+  if(searchBtn) {
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.toLowerCase();
+      const filtered = dummyData.filter(item => item.name.toLowerCase().includes(query));
+      renderResults(filtered);
+    });
+  }
+});
