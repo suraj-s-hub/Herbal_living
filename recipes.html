@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Herbal Nutrition — Recipes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">🌿 Herbal Nutrition</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Herbal Recipes 🍵</h1>
+    <div id="recipes-grid" class="grid grid-3"></div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Herbal Nutrition | Made with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const grid = document.getElementById('recipes-grid');
+    RECIPES.forEach(r => grid.appendChild(createRecipeCard(r)));
+  </script>
+</body>
+</html>

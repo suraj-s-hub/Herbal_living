@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Herbal Nutrition — Recipe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">🌿 Herbal Nutrition</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="recipe-detail"></div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Herbal Nutrition | Made with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Read id from query string ?id=1
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id') || '1';
+    const recipe = RECIPES.find(r => String(r.id) === String(id));
+    const mount = document.getElementById('recipe-detail');
+
+    if (!recipe) {
+      mount.innerHTML = '<p>Recipe not found</p>';
+    } else {
+      mount.innerHTML = `
+        <h1 class="detail-title">${recipe.name}</h1>
+        <img class="detail-image" src="${recipe.image}" alt="${recipe.name}" />
+        <h2>Steps:</h2>
+        <ol class="steps">
+          ${recipe.steps.map(s => `<li>${s}</li>`).join('')}
+        </ol>
+        <h2>Nutritional Benefits:</h2>
+        <p>${recipe.nutrients}</p>
+        <p><a class="btn" href="recipes.html">← Back to recipes</a></p>
+      `;
+    }
+  </script>
+</body>
+</html>
