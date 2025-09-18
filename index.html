@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herbal Nutrition - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Herbal Nutrition</a>
+      <ul>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" data-aos="fade-up">
+    <h1>Welcome to Herbal Nutrition</h1>
+    <p>Discover recipes, blogs, and tips for a healthier lifestyle</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search herbs, recipes...">
+      <button id="searchBtn">Search</button>
+    </div>
+  </section>
+
+  <section id="results" class="results"></section>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
